@@ -5,7 +5,7 @@ using System;
 
 namespace AcuCafe.Application
 {
-    public class AcuCafe
+    public static class AcuCafe
     {
         public static Drink OrderDrink(string type, bool hasMilk, bool hasSugar)
         {

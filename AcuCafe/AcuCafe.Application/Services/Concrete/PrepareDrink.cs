@@ -10,20 +10,20 @@ namespace AcuCafe.Application.Services.Concrete
                 string message = "We are preparing the following drink for you: " + description;
                 if (hasMilk)
                 {
-                    message += "with milk";
+                    message += " with milk";
                 }
                 else
                 {
-                    message += "without milk";
+                    message += " without milk";
                 }
 
                 if (hasSugar)
                 {
-                    message += "with sugar";
+                    message += " with sugar";
                 }
                 else
                 {
-                    message += "without sugar";
+                    message += " without sugar";
                 }
 
                 Console.WriteLine(message);
