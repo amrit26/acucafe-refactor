@@ -23,13 +23,12 @@ namespace AcuCafe.Application
             }
 
             var prepareService = new PrepareDrink();
-            prepareService.Prepare(type);
 
             try
             {
                 drink.HasMilk = hasMilk;
                 drink.HasSugar = hasSugar;
-                drink.Prepare = prepareService.Prepare(type); ;
+                drink.Prepare = prepareService.Prepare(type);
             }
             catch (Exception ex)
             {
