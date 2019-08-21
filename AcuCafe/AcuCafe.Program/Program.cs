@@ -6,7 +6,7 @@ namespace AcuCafe.Program
     {
         static void Main(string[] args)
         {
-            var blah = Application.AcuCafe.OrderDrink("Espresso", false, true);
+            var blah = Application.AcuCafe.OrderDrink("HotChocolate", true, true);
             Console.WriteLine(blah);
         }
     }

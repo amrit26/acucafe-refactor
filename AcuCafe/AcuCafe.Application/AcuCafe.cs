@@ -10,28 +10,32 @@ namespace AcuCafe.Application
         public static Drink OrderDrink(string type, bool hasMilk, bool hasSugar)
         {
             var drink = new Drink();
-            var description = string.Empty;
-
-            if (type == "Espresso")
-            {
-                drink = new Espresso();
-                description = Description.Espresso;
-            }
-            else if(type == "HotTea")
-            {
-                drink = new Tea();
-                description = Description.Tea;
-            }
-            else if (type == "IceTea")
-            {
-                drink = new IceTea();
-                description = Description.IceTea;
-            }
-
-            var prepareService = new PrepareDrink();
-
             try
             {
+                var description = string.Empty;
+
+                if (type == "Espresso")
+                {
+                    drink = new Espresso();
+                    description = Description.Espresso;
+                }
+                else if (type == "HotTea")
+                {
+                    drink = new Tea();
+                    description = Description.Tea;
+                }
+                else if (type == "IceTea")
+                {
+                    drink = new IceTea();
+                    description = Description.IceTea;
+                }
+                else
+                {
+                    throw new Exception("Drink selected not on the list.");
+                }
+
+                var prepareService = new PrepareService();
+
                 drink.HasMilk = hasMilk;
                 drink.HasSugar = hasSugar;
                 prepareService.Prepare(type, description, hasMilk, hasSugar);
@@ -39,7 +43,7 @@ namespace AcuCafe.Application
             catch (Exception ex)
             {
                 Console.WriteLine("We are unable to prepare your drink.");
-                System.IO.File.WriteAllText(@"c:\Error.txt", ex.ToString());
+                //System.IO.File.WriteAllText(@"c:\Error.txt", ex.ToString());
             }
 
             return drink;

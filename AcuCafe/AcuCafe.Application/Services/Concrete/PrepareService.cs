@@ -3,7 +3,7 @@ using System;
 
 namespace AcuCafe.Application.Services.Concrete
 {
-    public class PrepareDrink : IPrepareDrink
+    public class PrepareService : IPrepareService
     {
             public void Prepare(string drink, string description, bool hasMilk, bool hasSugar)
             {
