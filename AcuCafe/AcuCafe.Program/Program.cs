@@ -4,10 +4,10 @@ namespace AcuCafe.Program
 {
     public class Program
     {
-        static void Main(string[] args)
+       public static void Main()
         {
-            var blah = Application.AcuCafe.OrderDrink("IceTea", false, true);
-            Console.WriteLine(blah);
+            var test = Application.AcuCafe.OrderDrink("IceTea", false, true);
+            Console.WriteLine(test);
         }
     }
 }
