@@ -6,12 +6,12 @@
         {
             double cost = 1;
 
-            if (HasMilk)
+            if (Preparation.HasMilk)
             {
                 cost += Constants.Cost.MilkCost;
             }
 
-            if (HasSugar)
+            if (Preparation.HasSugar)
             {
                 cost += Constants.Cost.SugarCost;
             }

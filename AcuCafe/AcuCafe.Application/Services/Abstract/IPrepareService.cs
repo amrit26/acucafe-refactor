@@ -1,7 +1,9 @@
-﻿namespace AcuCafe.Application.Services.Abstract
+﻿using AcuCafe.Application.Models;
+
+namespace AcuCafe.Application.Services.Abstract
 {
     public interface IPrepareService
     {
-        void Prepare(string drink, string description, bool hasMilk, bool hasSugar);
+        void Prepare(Preparation drinkPrep);
     }
 }

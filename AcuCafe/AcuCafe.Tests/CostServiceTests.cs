@@ -10,11 +10,11 @@ namespace AcuCafe.Tests
         [TestCase(2.3, false, true)]
         [TestCase(2.8, true, true)]
         [Test]
-        public void AcuCafe_Espresso_Test(double cost, bool hasMilk, bool hasSugar)
+        public void Finding_Cost_Of_Espresso_AreEqual(double cost, bool hasMilk, bool hasSugar)
         {
-            var espresso = new Espresso {HasMilk = hasMilk, HasSugar = hasSugar };
+            var espresso = new Espresso { Preparation = new Preparation { HasMilk = hasMilk, HasSugar = hasSugar } };
             var result = espresso.Cost();
-            
+
             Assert.AreEqual(cost, result);
         }
 
@@ -23,9 +23,9 @@ namespace AcuCafe.Tests
         [TestCase(1.5, false, true)]
         [TestCase(2.0, true, true)]
         [Test]
-        public void AcuCafe_Tea_Test(double cost, bool hasMilk, bool hasSugar)
+        public void Finding_Cost_Of_Tea_AreEqual(double cost, bool hasMilk, bool hasSugar)
         {
-            var hotTea = new Tea { HasMilk = hasMilk, HasSugar = hasSugar };
+            var hotTea = new Tea { Preparation = new Preparation { HasMilk = hasMilk, HasSugar = hasSugar } };
             var result = hotTea.Cost();
 
             Assert.AreEqual(cost, result);
@@ -36,9 +36,9 @@ namespace AcuCafe.Tests
         [TestCase(2.0, false, true)]
         [TestCase(2.5, true, true)]
         [Test]
-        public void AcuCafe_IceTea_Test(double cost, bool hasMilk, bool hasSugar)
+        public void Finding_Cost_Of_IceTea_AreEqual(double cost, bool hasMilk, bool hasSugar)
         {
-            var iceTea = new IceTea { HasMilk = hasMilk, HasSugar = hasSugar };
+            var iceTea = new IceTea { Preparation = new Preparation { HasMilk = hasMilk, HasSugar = hasSugar } };
             var result = iceTea.Cost();
 
             Assert.AreEqual(cost, result);

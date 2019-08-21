@@ -1,24 +1,33 @@
-﻿using AcuCafe.Application.Extensions;
+﻿using AcuCafe.Application.Builders.Abstract;
+using AcuCafe.Application.Extensions;
 using AcuCafe.Application.Models;
-using AcuCafe.Application.Services.Concrete;
+using AcuCafe.Application.Services.Abstract;
 using System;
 
 namespace AcuCafe.Application
 {
-    public static class AcuCafe
+    public class AcuCafe
     {
-        public static Drink OrderDrink(string type, bool hasMilk, bool hasSugar)
+        private readonly IPrepareService _prepareService;
+        private readonly IPreparationBuilder _preparationBuilder;
+
+        public AcuCafe(
+            IPrepareService prepareService,
+            IPreparationBuilder preparationBuilder)
+        {
+            _prepareService = prepareService;
+            _preparationBuilder = preparationBuilder;
+        }
+
+        public Drink OrderDrink(string type, bool hasMilk, bool hasSugar)
         {
             var drink = new Drink();
             try
             {
                 drink = DrinkExtensions.DrinkSelection(type, out var description);
 
-                var prepareService = new PrepareService();
-
-                drink.HasMilk = hasMilk;
-                drink.HasSugar = hasSugar;
-                prepareService.Prepare(type, description, hasMilk, hasSugar);
+                var preparation = _preparationBuilder.Build(type, hasMilk, hasSugar, description);
+                _prepareService.Prepare(preparation);
             }
             catch (Exception ex)
             {
