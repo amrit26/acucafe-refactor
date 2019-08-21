@@ -1,4 +1,4 @@
-﻿namespace AcuCafe.Models.Constants
+﻿namespace AcuCafe.Application.Constants
 {
     public static class Description
     {

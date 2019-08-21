@@ -1,6 +1,8 @@
-﻿namespace AcuCafe.Models
+﻿using AcuCafe.Application.Services.Abstract;
+
+namespace AcuCafe.Application.Models
 {
-    public class IceTea : Drink
+    public class IceTea : Drink, ICostService
     {
         public string Description => Constants.Description.IceTea;
 

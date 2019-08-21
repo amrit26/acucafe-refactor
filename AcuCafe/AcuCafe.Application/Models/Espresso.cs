@@ -1,12 +1,14 @@
-﻿namespace AcuCafe.Models
+﻿using AcuCafe.Application.Services.Abstract;
+
+namespace AcuCafe.Application.Models
 {
-    public class Tea : Drink
+    public class Espresso : Drink, ICostService
     {
-        public string Description => Constants.Description.Tea;
+        public string Description => Constants.Description.Espresso;
 
         public new double Cost()
-        {
-            double cost = 1;
+        { 
+            double cost = 1.8;
 
             if (HasMilk)
             {

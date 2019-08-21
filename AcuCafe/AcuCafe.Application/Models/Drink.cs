@@ -1,6 +1,8 @@
-﻿namespace AcuCafe.Models
+﻿using AcuCafe.Application.Services.Abstract;
+
+namespace AcuCafe.Application.Models
 {
-    public class Drink
+    public class Drink : ICostService
     {
         public bool HasSugar { get; set; }
         public bool HasMilk { get; set; }
