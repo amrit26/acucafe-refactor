@@ -5,29 +5,28 @@ namespace AcuCafe.Application.Services.Concrete
 {
     public class PrepareService : IPrepareService
     {
-            public void Prepare(string drink, string description, bool hasMilk, bool hasSugar)
+        public void Prepare(string drink, string description, bool hasMilk, bool hasSugar)
+        {
+            string message = "We are preparing the following drink for you: " + description;
+            if (hasMilk)
             {
-                string message = "We are preparing the following drink for you: " + description;
-                if (hasMilk)
-                {
-                    message += " with milk";
-                }
-                else
-                {
-                    message += " without milk";
-                }
-
-                if (hasSugar)
-                {
-                    message += " with sugar";
-                }
-                else
-                {
-                    message += " without sugar";
-                }
-
-                Console.WriteLine(message);
+                message += " with milk,";
             }
-        
+            else
+            {
+                message += " without milk,";
+            }
+
+            if (hasSugar)
+            {
+                message += " with sugar.";
+            }
+            else
+            {
+                message += " without sugar.";
+            }
+
+            Console.WriteLine(message);
+        }
     }
 }

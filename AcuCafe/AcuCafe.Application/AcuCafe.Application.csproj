@@ -50,9 +50,7 @@
     <Compile Include="Models\IceTea.cs" />
     <Compile Include="Models\Tea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Abstract\ICostService.cs" />
     <Compile Include="Services\Abstract\IPrepareService.cs" />
-    <Compile Include="Services\Concrete\CostService.cs" />
     <Compile Include="Services\Concrete\PrepareService.cs" />
   </ItemGroup>
   <ItemGroup />

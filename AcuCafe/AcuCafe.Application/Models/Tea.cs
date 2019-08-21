@@ -1,10 +1,8 @@
-﻿using AcuCafe.Application.Services.Abstract;
-
-namespace AcuCafe.Application.Models
+﻿namespace AcuCafe.Application.Models
 {
-    public class Tea : Drink, ICostService
+    public class Tea : Drink
     {
-        public new double Cost()
+        public override double Cost()
         {
             double cost = 1;
 

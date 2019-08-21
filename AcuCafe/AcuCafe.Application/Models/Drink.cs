@@ -1,13 +1,11 @@
-﻿using AcuCafe.Application.Services.Abstract;
-
-namespace AcuCafe.Application.Models
+﻿namespace AcuCafe.Application.Models
 {
-    public class Drink : ICostService
+    public class Drink
     {
         public bool HasSugar { get; set; }
         public bool HasMilk { get; set; }
 
-        public double Cost()
+        public virtual double Cost()
         {
             return 0;
         }
