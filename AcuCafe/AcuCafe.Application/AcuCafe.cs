@@ -12,26 +12,7 @@ namespace AcuCafe.Application
             var drink = new Drink();
             try
             {
-                string description;
-
-                switch (type)
-                {
-                    case "Espresso":
-                        drink = new Espresso();
-                        description = Description.Espresso;
-                        break;
-                    case "HotTea":
-                        drink = new Tea();
-                        description = Description.Tea;
-                        break;
-                    case "IceTea":
-                        drink = new IceTea();
-                        description = Description.IceTea;
-                        break;
-                    default:
-                        throw new Exception("Drink selected not on the list.");
-                }
-
+                drink = DrinkSelection(type, out var description);
                 var prepareService = new PrepareService();
 
                 drink.HasMilk = hasMilk;
@@ -42,6 +23,30 @@ namespace AcuCafe.Application
             {
                 Console.WriteLine("We are unable to prepare your drink. " + ex.Message);
                 //System.IO.File.WriteAllText(@"c:\Error.txt", ex.ToString());
+            }
+
+            return drink;
+        }
+
+        private static Drink DrinkSelection(string type, out string description)
+        {
+            Drink drink;
+            switch (type)
+            {
+                case "Espresso":
+                    drink = new Espresso();
+                    description = Description.Espresso;
+                    break;
+                case "HotTea":
+                    drink = new Tea();
+                    description = Description.Tea;
+                    break;
+                case "IceTea":
+                    drink = new IceTea();
+                    description = Description.IceTea;
+                    break;
+                default:
+                    throw new Exception("Drink selected not on the list.");
             }
 
             return drink;
