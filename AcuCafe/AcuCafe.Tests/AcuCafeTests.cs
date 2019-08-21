@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using AcuCafe.Application;
 
 namespace Tests
 {
@@ -12,6 +13,7 @@ namespace Tests
         [Test]
         public void AcuCafe_Test1()
         {
+            var acuCafe = AcuCafe.OrderDrink("HotChocolate", true, true);
             Assert.Pass();
         }
     }
