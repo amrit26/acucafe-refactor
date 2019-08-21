@@ -12,7 +12,7 @@ namespace AcuCafe.Application
             var drink = new Drink();
             try
             {
-                var description = string.Empty;
+                string description;
 
                 if (type == "Espresso")
                 {

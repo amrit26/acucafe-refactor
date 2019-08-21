@@ -2,7 +2,7 @@ using AcuCafe.Application.Services.Abstract;
 using Moq;
 using NUnit.Framework;
 
-namespace Tests
+namespace AcuCafe.Tests
 {
     public class Tests
     {
