@@ -4,8 +4,6 @@ namespace AcuCafe.Application.Models
 {
     public class IceTea : Drink, ICostService
     {
-        public string Description => Constants.Description.IceTea;
-
         public new double Cost()
         {
             double cost = 1.5;
