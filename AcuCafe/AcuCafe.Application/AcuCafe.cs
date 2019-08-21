@@ -1,6 +1,6 @@
-﻿using AcuCafe.Models;
+﻿using AcuCafe.Application.Services.Concrete;
+using AcuCafe.Models;
 using System;
-using AcuCafe.Application.Services.Concrete;
 
 namespace AcuCafe.Application
 {
@@ -9,17 +9,22 @@ namespace AcuCafe.Application
         public static Drink OrderDrink(string type, bool hasMilk, bool hasSugar)
         {
             var drink = new Drink();
+            var description = string.Empty;
+
             if (type == "Espresso")
             {
                 drink = new Espresso();
+                description = Models.Constants.Description.Espresso;
             }
             else if(type == "HotTea")
             {
                 drink = new Tea();
+                description = Models.Constants.Description.Tea;
             }
             else if (type == "IceTea")
             {
                 drink = new IceTea();
+                description = Models.Constants.Description.IceTea;
             }
 
             var prepareService = new PrepareDrink();
@@ -28,7 +33,7 @@ namespace AcuCafe.Application
             {
                 drink.HasMilk = hasMilk;
                 drink.HasSugar = hasSugar;
-                drink.Prepare = prepareService.Prepare(type);
+                prepareService.Prepare(type, description, hasMilk, hasSugar);
             }
             catch (Exception ex)
             {

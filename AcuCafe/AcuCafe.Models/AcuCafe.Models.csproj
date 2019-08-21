@@ -44,7 +44,6 @@
     <Compile Include="Constants\Cost.cs" />
     <Compile Include="Constants\Description.cs" />
     <Compile Include="Drink.cs" />
-    <Compile Include="DrinkItem.cs" />
     <Compile Include="Espresso.cs" />
     <Compile Include="IceTea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

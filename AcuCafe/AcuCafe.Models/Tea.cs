@@ -2,7 +2,7 @@
 {
     public class Tea : Drink
     {
-        public new string Description => Constants.Description.Tea;
+        public string Description => Constants.Description.Tea;
 
         public new double Cost()
         {

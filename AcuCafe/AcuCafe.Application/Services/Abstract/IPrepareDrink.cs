@@ -2,6 +2,6 @@
 {
     public interface IPrepareDrink
     {
-        void Prepare(string drink);
+        void Prepare(string drink, string description, bool hasMilk, bool hasSugar);
     }
 }

@@ -1,14 +1,14 @@
-﻿using System;
-using AcuCafe.Application.Services.Abstract;
+﻿using AcuCafe.Application.Services.Abstract;
+using System;
 
 namespace AcuCafe.Application.Services.Concrete
 {
     public class PrepareDrink : IPrepareDrink
     {
-            public void Prepare(string drink)
+            public void Prepare(string drink, string description, bool hasMilk, bool hasSugar)
             {
-                string message = "We are preparing the following drink for you: " + Description;
-                if (HasMilk)
+                string message = "We are preparing the following drink for you: " + description;
+                if (hasMilk)
                 {
                     message += "with milk";
                 }
@@ -17,7 +17,7 @@ namespace AcuCafe.Application.Services.Concrete
                     message += "without milk";
                 }
 
-                if (HasSugar)
+                if (hasSugar)
                 {
                     message += "with sugar";
                 }
