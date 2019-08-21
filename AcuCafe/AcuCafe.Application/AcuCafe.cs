@@ -14,24 +14,22 @@ namespace AcuCafe.Application
             {
                 string description;
 
-                if (type == "Espresso")
+                switch (type)
                 {
-                    drink = new Espresso();
-                    description = Description.Espresso;
-                }
-                else if (type == "HotTea")
-                {
-                    drink = new Tea();
-                    description = Description.Tea;
-                }
-                else if (type == "IceTea")
-                {
-                    drink = new IceTea();
-                    description = Description.IceTea;
-                }
-                else
-                {
-                    throw new Exception("Drink selected not on the list.");
+                    case "Espresso":
+                        drink = new Espresso();
+                        description = Description.Espresso;
+                        break;
+                    case "HotTea":
+                        drink = new Tea();
+                        description = Description.Tea;
+                        break;
+                    case "IceTea":
+                        drink = new IceTea();
+                        description = Description.IceTea;
+                        break;
+                    default:
+                        throw new Exception("Drink selected not on the list.");
                 }
 
                 var prepareService = new PrepareService();
