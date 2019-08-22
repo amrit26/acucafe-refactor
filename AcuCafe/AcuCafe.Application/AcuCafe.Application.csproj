@@ -47,6 +47,8 @@
     <Compile Include="Constants\Cost.cs" />
     <Compile Include="Constants\Description.cs" />
     <Compile Include="Extensions\DrinkExtensions.cs" />
+    <Compile Include="Logging\Abstract\ILogger.cs" />
+    <Compile Include="Logging\Concrete\Logger.cs" />
     <Compile Include="Models\Drink.cs" />
     <Compile Include="Models\Espresso.cs" />
     <Compile Include="Models\IceTea.cs" />

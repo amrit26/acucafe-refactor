@@ -6,7 +6,7 @@ namespace AcuCafe.Application.Services.Concrete
 {
     public class PrepareService : IPrepareService
     {
-        public void Prepare(Preparation preparation)
+        public string Prepare(Preparation preparation)
         {
             var message = "We are preparing the following drink for you: " + preparation.Description;
 
@@ -38,13 +38,18 @@ namespace AcuCafe.Application.Services.Concrete
                 message = "Inform Barista that the ice tea has milk in it.";
             }
 
-            Console.WriteLine(message);
+            return message;
         }
 
-        private static string ChocolateToppingOption(string message)
+        public string GetUserInput()
+        {
+            return Console.ReadLine();
+        }
+
+        private string ChocolateToppingOption(string message)
         {
             Console.WriteLine("Would you like chocolate topping? \n 1. Yes \n 2. No");
-            var selection = Console.ReadLine();
+            var selection = GetUserInput();
             if (selection == "1" || selection == "Yes" || selection == "YES" || selection == "yes")
             {
                 message += " with chocolate topping,";

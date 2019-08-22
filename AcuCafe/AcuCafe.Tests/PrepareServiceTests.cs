@@ -1,26 +1,21 @@
 using AcuCafe.Application.Models;
-using AcuCafe.Application.Services.Abstract;
-using Moq;
+using AcuCafe.Application.Services.Concrete;
 using NUnit.Framework;
+using System;
+using System.IO;
 
 namespace AcuCafe.Tests
 {
     public class PrepareServiceTests
     {
-        public Mock<IPrepareService> PrepareService;
-
-        [SetUp]
-        public void SetUp()
-        {
-            PrepareService = new Mock<IPrepareService>();
-        }
-
-        [TestCase("We are preparing the following drink for you: Espresso without milk, without sugar.", false, false)]
-        [TestCase("We are preparing the following drink for you: Espresso with chocolate topping, with milk, without sugar.", true, false)]
-        [TestCase("We are preparing the following drink for you: Espresso without milk, with sugar.", false, true)]
-        [TestCase("We are preparing the following drink for you: Espresso with chocolate topping, with milk, with sugar.", true, true)]
+        [TestCase("We are preparing the following drink for you: Espresso without milk, without sugar.", false, false, "")]
+        [TestCase("We are preparing the following drink for you: Espresso without milk, with sugar.", false, true, "")]
+        [TestCase("We are preparing the following drink for you: Espresso with chocolate topping, with milk, without sugar.", true, false, "1")]
+        [TestCase("We are preparing the following drink for you: Espresso with chocolate topping, with milk, with sugar.", true, true, "Yes")]
+        [TestCase("We are preparing the following drink for you: Espresso with chocolate topping, with milk, with sugar.", true, true, "YES")]
+        [TestCase("We are preparing the following drink for you: Espresso with chocolate topping, with milk, with sugar.", true, true, "yes")]
         [Test]
-        public void AcuCafe_EspressoMessage_Test(string message, bool hasMilk, bool hasSugar)
+        public void Preparation_Message_Of_Espresso_AreEqual(string message, bool hasMilk, bool hasSugar, string toppingInput)
         {
             var preparation = new Preparation
             {
@@ -30,8 +25,13 @@ namespace AcuCafe.Tests
                 HasSugar = hasSugar
             };
 
-            var result = PrepareService.Setup(x => x.Prepare(preparation));
+            var preparationService = new PrepareService();
             
+            var input = new StringReader(toppingInput);
+            Console.SetIn(input);
+
+            var result = preparationService.Prepare(preparation);
+
             Assert.AreEqual(message, result);
         }
 
@@ -40,7 +40,7 @@ namespace AcuCafe.Tests
         [TestCase("We are preparing the following drink for you: Hot tea without milk, with sugar.", false, true)]
         [TestCase("We are preparing the following drink for you: Hot tea with milk, with sugar.", true, true)]
         [Test]
-        public void AcuCafe_TeaMessage_Test(string message, bool hasMilk, bool hasSugar)
+        public void Preparation_Message_Of_Tea_AreEqual(string message, bool hasMilk, bool hasSugar)
         {
             var preparation = new Preparation
             {
@@ -50,7 +50,9 @@ namespace AcuCafe.Tests
                 HasSugar = hasSugar
             };
 
-            var result = PrepareService.Setup(x => x.Prepare(preparation));
+            var preparationService = new PrepareService();
+            
+            var result = preparationService.Prepare(preparation);
 
             Assert.AreEqual(message, result);
         }
@@ -60,7 +62,7 @@ namespace AcuCafe.Tests
         [TestCase("We are preparing the following drink for you: Ice tea without milk, with sugar.", false, true)]
         [TestCase("Inform Barista that the ice tea has milk in it.", true, true)]
         [Test]
-        public void AcuCafe_IceTeaMessage_Test(string message, bool hasMilk, bool hasSugar)
+        public void Preparation_Message_Of_IceTea_AreEqual(string message, bool hasMilk, bool hasSugar)
         {
             var preparation = new Preparation
             {
@@ -70,7 +72,9 @@ namespace AcuCafe.Tests
                 HasSugar = hasSugar
             };
 
-            var result = PrepareService.Setup(x => x.Prepare(preparation));
+            var preparationService = new PrepareService();
+            
+            var result = preparationService.Prepare(preparation);
 
             Assert.AreEqual(message, result);
         }

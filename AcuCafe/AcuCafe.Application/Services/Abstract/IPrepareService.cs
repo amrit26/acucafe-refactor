@@ -4,6 +4,6 @@ namespace AcuCafe.Application.Services.Abstract
 {
     public interface IPrepareService
     {
-        void Prepare(Preparation drinkPrep);
+        string Prepare(Preparation drinkPrep);
     }
 }

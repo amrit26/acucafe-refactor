@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace AcuCafe.Tests
 {
-    public class CostServiceTests
+    public class CostTests
     {
         [TestCase(1.8, false, false)]
         [TestCase(2.3, true, false)]
